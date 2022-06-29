@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".pages.welcome.WelcomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="221dp"
+        android:background="@color/orange"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/roboto_bold"
+            android:lineHeight="25.2dp"
+            android:text="WELCOME"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:textSize="18sp"
+            tools:targetApi="p" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/roboto"
+            android:lineHeight="19.6dp"
+            android:text="This is app for suitmedia mobile developer test"
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:textSize="14sp"
+            tools:targetApi="p" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-71dp"
+        android:background="@drawable/welcome_form_box"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_avatar" />
+
+        <EditText
+            android:id="@+id/ed_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="24dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="14dp"
+            android:hint="Type name here..."
+            android:background="@drawable/welcome_form_edtext"
+            android:textColorHint="#C4C4C4"
+            android:fontFamily="@font/roboto"
+            android:layout_marginTop="24dp"
+            android:textFontWeight="400"
+            android:textSize="14sp"
+            tools:targetApi="p"
+            android:inputType="textCapWords"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/ed_palindrome"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="24dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="14dp"
+            android:hint="Type text palindrome"
+            android:background="@drawable/welcome_form_edtext"
+            android:textColorHint="#C4C4C4"
+            android:fontFamily="@font/roboto"
+            android:layout_marginTop="18dp"
+            android:textFontWeight="400"
+            android:textSize="14sp"
+            tools:targetApi="p"
+            android:inputType="text"
+            android:importantForAutofill="no" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="24dp"
+            android:layout_marginHorizontal="24dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_container"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:fontFamily="@font/roboto"
+                android:textFontWeight="500"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:paddingTop="10dp"
+                android:paddingBottom="11dp"
+                android:paddingStart="61.05dp"
+                android:paddingEnd="61.95dp"
+                android:lineHeight="19.2dp"
+                android:layout_marginEnd="15dp"
+                tools:targetApi="p" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_checkPalindrome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_container"
+                android:text="Check"
+                android:textAllCaps="false"
+                android:fontFamily="@font/roboto"
+                android:textFontWeight="500"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:paddingTop="10dp"
+                android:paddingBottom="11dp"
+                android:paddingStart="14.81dp"
+                android:paddingEnd="15.19dp"
+                android:lineHeight="19.2dp"
+                tools:targetApi="p" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Copyright © 2020 Suitmedia All Rights Reserved."
+        android:fontFamily="@font/roboto"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        android:lineHeight="16.8dp"
+        android:gravity="bottom|center"
+        android:paddingBottom="32dp"
+        tools:targetApi="p" />
+
+</LinearLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".pages.on_board.OnBoardFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="221dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="0dp"
+        android:background="@drawable/bg_bright">
+
+        <TextView
+            android:id="@+id/tv_hallo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hallo,"
+            android:fontFamily="@font/roboto"
+            android:textFontWeight="500"
+            android:textColor="#525252"
+            android:textSize="24sp"
+            android:lineHeight="28.8dp"
+            android:layout_marginTop="49dp"
+            android:layout_alignParentTop="true"
+            tools:targetApi="p" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_hallo"
+            android:fontFamily="@font/roboto"
+            android:lineHeight="28.8dp"
+            android:text="User!"
+            android:layout_marginTop="9dp"
+            android:textColor="#EC5F00"
+            android:textFontWeight="500"
+            android:textSize="24sp"
+            tools:targetApi="p" />
+
+        <LinearLayout
+            android:id="@+id/line1"
+            android:layout_width="200.64dp"
+            android:layout_height="2dp"
+            android:background="@color/orange"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="71dp"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/line2"
+            android:layout_width="216dp"
+            android:layout_height="2dp"
+            android:background="@color/orange"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/line1"
+            android:layout_marginTop="8.5dp"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/line3"
+            android:layout_width="200.64dp"
+            android:layout_height="2dp"
+            android:background="@color/orange"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/line2"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_container"
+        android:text="Choose Event"
+        android:paddingTop="12dp"
+        android:paddingBottom="14dp"
+        android:paddingStart="92.91dp"
+        android:paddingEnd="91.09dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto"
+        android:textFontWeight="500"
+        android:lineHeight="21.6dp"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="-21dp"
+        tools:targetApi="p" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_guest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_container"
+        android:text="Choose Guest"
+        android:paddingTop="12dp"
+        android:paddingBottom="14dp"
+        android:paddingStart="92.91dp"
+        android:paddingEnd="91.09dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto"
+        android:textFontWeight="500"
+        android:lineHeight="21.6dp"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        tools:targetApi="p" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:layout_width="244dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:src="@drawable/img_suitmedia"
+            android:layout_above="@id/iv_btmImg"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="56dp"/>
+
+        <ImageView
+            android:id="@+id/iv_btmImg"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:src="@drawable/img_bg_bottom"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>
