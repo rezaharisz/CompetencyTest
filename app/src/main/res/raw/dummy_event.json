@@ -1,0 +1,12 @@
+{
+  "events": [{"id":1,"poster":"http://dummyimage.com/90x90.png/dddddd/000000","title":"Great War","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","date":"5 Juli 2022","time":"12:02 PM","latitude":"44.968046","longitude":"-94.420307"},
+    {"id":2,"poster":"http://dummyimage.com/90x90.png/ff4444/ffffff","title":"Funfest Music","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","date":"4 April 2022","time":"9:09 PM","latitude":"44.33328","longitude":"-89.132008"},
+    {"id":3,"poster":"http://dummyimage.com/90x90.png/dddddd/000000","title":"Jaranan","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","date":"8 Desember 2021","time":"5:41 AM","latitude":"33.755787","longitude":"-116.359998"},
+    {"id":4,"poster":"http://dummyimage.com/90x90.png/dddddd/000000","title":"Car Expo","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","date":"9 Juni 2022","time":"1:03 PM","latitude":"33.844843","longitude":"-116.54911"},
+    {"id":5,"poster":"http://dummyimage.com/90x90.png/5fa2dd/ffffff","title":"Moto Expo","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","date":"30 Desember 2021","time":"5:49 PM","latitude":"44.92057","longitude":"-93.44786"},
+    {"id":6,"poster":"http://dummyimage.com/90x90.png/5fa2dd/ffffff","title":"Speed Hunter","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","date":"7 Juni 2021","time":"6:21 AM","latitude":"44.240309","longitude":"-91.493619"},
+    {"id":7,"poster":"http://dummyimage.com/90x90.png/ff4444/ffffff","title":"Musica Festival","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","date":"29 Januari 2022","time":"1:24 AM","latitude":"44.968041","longitude":"-94.419696"},
+    {"id":8,"poster":"http://dummyimage.com/90x90.png/dddddd/000000","title":"Moon Festa","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","date":"19 Oktober 2021","time":"11:56 AM","latitude":"44.333304","longitude":"-89.132027"},
+    {"id":9,"poster":"http://dummyimage.com/90x90.png/5fa2dd/ffffff","title":"Pildacil","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","date":"22 Mei 2022","time":"6:27 PM","latitude":"33.755783","longitude":"-116.360066"},
+    {"id":10,"poster":"http://dummyimage.com/90x90.png/cc0000/ffffff","title":"Sperto Fiesta","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","date":"11 November 2021","time":"7:31 PM","latitude":"33.844847","longitude":"-116.549069"}]
+}

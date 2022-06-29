@@ -54,6 +54,8 @@
                 android:overScrollMode="never"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="2"
+                android:paddingTop="40dp"
+                android:clipToPadding="false"
                 tools:listitem="@layout/item_guest" />
 
             <ProgressBar
