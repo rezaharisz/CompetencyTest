@@ -12,8 +12,8 @@ class GuestViewModel(application: Application): ViewModel() {
 
     private val repository = Repository(application)
 
-    fun getAllUser(params: HashMap<String, String>): LiveData<Resource<PagedList<UserListEntity>>> =
-        repository.getAllUser(params)
+    fun getAllUser(visibleItem: Int, itemCount: Int): LiveData<Resource<PagedList<UserListEntity>>> =
+        repository.getAllUser(visibleItem, itemCount)
 
     fun clearData() = repository.deleteAll()
 

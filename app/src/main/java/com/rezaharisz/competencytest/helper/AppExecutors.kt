@@ -1,8 +1,9 @@
-package com.rezaharisz.competencytest.utils
+package com.rezaharisz.competencytest.helper
 
 import android.os.Handler
 import android.os.Looper
 import androidx.annotation.VisibleForTesting
+import com.rezaharisz.competencytest.utils.THREAD_COUNT
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 

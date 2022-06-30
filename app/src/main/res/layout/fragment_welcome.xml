@@ -23,6 +23,7 @@
             android:textColor="@color/white"
             android:textFontWeight="700"
             android:textSize="18sp"
+            tools:ignore="HardcodedText"
             tools:targetApi="p" />
 
         <TextView
@@ -36,6 +37,7 @@
             android:textColor="@color/white"
             android:textFontWeight="400"
             android:textSize="14sp"
+            tools:ignore="HardcodedText"
             tools:targetApi="p" />
 
     </LinearLayout>
@@ -63,61 +65,64 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/welcome_form_edtext"
+            android:fontFamily="@font/roboto"
+            android:hint="Type name here..."
+            android:importantForAutofill="no"
+            android:inputType="textCapWords"
             android:paddingHorizontal="16dp"
             android:paddingVertical="14dp"
-            android:hint="Type name here..."
-            android:background="@drawable/welcome_form_edtext"
             android:textColorHint="#C4C4C4"
-            android:fontFamily="@font/roboto"
-            android:layout_marginTop="24dp"
             android:textFontWeight="400"
             android:textSize="14sp"
-            tools:targetApi="p"
-            android:inputType="textCapWords"
-            android:importantForAutofill="no" />
+            tools:ignore="HardcodedText"
+            tools:targetApi="p" />
 
         <EditText
             android:id="@+id/ed_palindrome"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/welcome_form_edtext"
+            android:fontFamily="@font/roboto"
+            android:hint="Type text palindrome"
+            android:importantForAutofill="no"
+            android:inputType="text"
             android:paddingHorizontal="16dp"
             android:paddingVertical="14dp"
-            android:hint="Type text palindrome"
-            android:background="@drawable/welcome_form_edtext"
             android:textColorHint="#C4C4C4"
-            android:fontFamily="@font/roboto"
-            android:layout_marginTop="18dp"
             android:textFontWeight="400"
             android:textSize="14sp"
-            tools:targetApi="p"
-            android:inputType="text"
-            android:importantForAutofill="no" />
+            tools:ignore="HardcodedText"
+            tools:targetApi="p" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginVertical="24dp"
-            android:layout_marginHorizontal="24dp">
+            android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
                 android:background="@drawable/btn_container"
+                android:fontFamily="@font/roboto"
+                android:lineHeight="19.2dp"
+                android:paddingStart="61.05dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="61.95dp"
+                android:paddingBottom="11dp"
                 android:text="Next"
                 android:textAllCaps="false"
-                android:fontFamily="@font/roboto"
+                android:textColor="@color/white"
                 android:textFontWeight="500"
                 android:textSize="16sp"
-                android:textColor="@color/white"
-                android:paddingTop="10dp"
-                android:paddingBottom="11dp"
-                android:paddingStart="61.05dp"
-                android:paddingEnd="61.95dp"
-                android:lineHeight="19.2dp"
-                android:layout_marginEnd="15dp"
+                tools:ignore="HardcodedText"
                 tools:targetApi="p" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -125,17 +130,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_container"
+                android:fontFamily="@font/roboto"
+                android:lineHeight="19.2dp"
+                android:paddingStart="14.81dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="15.19dp"
+                android:paddingBottom="11dp"
                 android:text="Check"
                 android:textAllCaps="false"
-                android:fontFamily="@font/roboto"
+                android:textColor="@color/white"
                 android:textFontWeight="500"
                 android:textSize="16sp"
-                android:textColor="@color/white"
-                android:paddingTop="10dp"
-                android:paddingBottom="11dp"
-                android:paddingStart="14.81dp"
-                android:paddingEnd="15.19dp"
-                android:lineHeight="19.2dp"
+                tools:ignore="HardcodedText"
                 tools:targetApi="p" />
 
         </LinearLayout>
@@ -145,13 +151,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Copyright © 2020 Suitmedia All Rights Reserved."
         android:fontFamily="@font/roboto"
+        android:gravity="bottom|center"
+        android:lineHeight="16.8dp"
+        android:paddingBottom="32dp"
+        android:text="Copyright © 2020 Suitmedia All Rights Reserved."
         android:textFontWeight="400"
         android:textSize="12sp"
-        android:lineHeight="16.8dp"
-        android:gravity="bottom|center"
-        android:paddingBottom="32dp"
+        tools:ignore="HardcodedText"
         tools:targetApi="p" />
 
 </LinearLayout>

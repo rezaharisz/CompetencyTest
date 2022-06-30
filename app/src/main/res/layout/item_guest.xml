@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="90dp"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:layout_marginHorizontal="32dp"
-    android:layout_marginBottom="40dp">
+    android:layout_marginBottom="40dp"
+    android:orientation="vertical">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_user"
@@ -17,15 +17,16 @@
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto"
         android:lineHeight="22.4dp"
+        android:maxLines="2"
         android:text="John Doe"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textFontWeight="400"
         android:textSize="16sp"
-        android:maxLines="2"
-        android:textAlignment="center"
-        android:layout_marginTop="16dp"
+        tools:ignore="HardcodedText"
         tools:targetApi="p" />
 
 </LinearLayout>

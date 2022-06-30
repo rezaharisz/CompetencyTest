@@ -8,14 +8,13 @@ import com.rezaharisz.competencytest.data.local.model.UserListEntity
 import com.rezaharisz.competencytest.data.local.model.UserLoginEntity
 import com.rezaharisz.competencytest.data.local.source.LocalDataSources
 import com.rezaharisz.competencytest.data.remote.model.ResponseListUser
-import com.rezaharisz.competencytest.data.remote.model.ResponseUser
 import com.rezaharisz.competencytest.data.remote.source.RemoteDataSources
 import com.rezaharisz.competencytest.helper.NetworkBoundResource
 import com.rezaharisz.competencytest.utils.ApiResponse
-import com.rezaharisz.competencytest.utils.AppExecutors
+import com.rezaharisz.competencytest.helper.AppExecutors
 import com.rezaharisz.competencytest.utils.Resource
 
-class Repository(application: Application){
+class Repository(application: Application) {
 
     private val localDataSources = LocalDataSources(application)
     private val remoteDataSources = RemoteDataSources()
@@ -23,11 +22,12 @@ class Repository(application: Application){
 
     fun insertUser(userLoginEntity: UserLoginEntity) = localDataSources.insertUser(userLoginEntity)
 
-//    fun getResponseUser(params: HashMap<String, String>): LiveData<ResponseUser> =
-//        remoteDataSources.getResponseUser(params)
-
-    fun getAllUser(params: HashMap<String, String>): LiveData<Resource<PagedList<UserListEntity>>>{
-        return object : NetworkBoundResource<PagedList<UserListEntity>, List<ResponseListUser>>(appExecutors){
+    fun getAllUser(
+        visibleItem: Int,
+        itemCount: Int
+    ): LiveData<Resource<PagedList<UserListEntity>>> {
+        return object :
+            NetworkBoundResource<PagedList<UserListEntity>, List<ResponseListUser>>(appExecutors) {
             override fun loadFromDB(): LiveData<PagedList<UserListEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
@@ -42,12 +42,12 @@ class Repository(application: Application){
             }
 
             override fun createCall(): LiveData<ApiResponse<List<ResponseListUser>>> {
-                return remoteDataSources.getResponseUser(params)
+                return remoteDataSources.getResponseUser(visibleItem, itemCount)
             }
 
             override fun saveCallResult(data: List<ResponseListUser>) {
                 val listUser = ArrayList<UserListEntity>()
-                for(i in data){
+                for (i in data) {
                     val user = i.id?.let {
                         UserListEntity(
                             it,

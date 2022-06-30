@@ -20,7 +20,9 @@
             android:layout_width="19.2dp"
             android:layout_height="16.8dp"
             android:layout_marginVertical="19.6dp"
-            android:src="@drawable/ic_back_white" />
+            android:src="@drawable/ic_back_white"
+            android:contentDescription="Icon Back"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +35,8 @@
             android:lineHeight="25.2dp"
             android:layout_marginVertical="15.5dp"
             android:layout_marginStart="34.4dp"
-            tools:targetApi="p" />
+            tools:targetApi="p"
+            tools:ignore="HardcodedText" />
 
         <ImageView
             android:id="@+id/btn_map"
@@ -42,7 +45,9 @@
             android:src="@drawable/ic_map_white"
             android:layout_marginVertical="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_gravity="end"/>
+            android:layout_gravity="end"
+            android:contentDescription="Button Maps"
+            tools:ignore="HardcodedText" />
 
         <ImageView
             android:id="@+id/btn_search"
@@ -51,7 +56,9 @@
             android:src="@drawable/ic_search_white"
             android:layout_gravity="end"
             android:layout_marginVertical="16dp"
-            android:layout_marginEnd="24dp"/>
+            android:layout_marginEnd="24dp"
+            android:contentDescription="Button Search"
+            tools:ignore="HardcodedText" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -75,7 +82,8 @@
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:ignore="FragmentTagUsage" />
 
         <LinearLayout
             android:id="@+id/container_card_event"

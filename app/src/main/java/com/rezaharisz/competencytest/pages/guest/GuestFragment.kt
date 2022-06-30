@@ -8,15 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.rezaharisz.competencytest.R
 import com.rezaharisz.competencytest.databinding.FragmentGuestBinding
 import com.rezaharisz.competencytest.utils.StatusBar
 import com.rezaharisz.competencytest.helper.ViewModelFactory
 import com.rezaharisz.competencytest.utils.Status
-import kotlinx.coroutines.async
-import kotlinx.coroutines.runBlocking
 
 class GuestFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
 
@@ -27,8 +27,8 @@ class GuestFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRef
     private lateinit var gridLayoutManager: GridLayoutManager
     private var page = 1
     private var perPage = 10
-    private var totalPages = 1
-    private var isLoading = false
+    private var visibleItem = 0
+    private var itemCount = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentGuestBinding.inflate(inflater, container, false)
@@ -52,13 +52,7 @@ class GuestFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRef
             guestAdapter = GuestAdapter()
             gridLayoutManager = GridLayoutManager(context, 2)
 
-            getData(false)
-
-            with(binding?.rvGuests){
-                this?.layoutManager = gridLayoutManager
-                this?.setHasFixedSize(true)
-                this?.adapter = guestAdapter
-            }
+            getData()
 
             binding?.swipeRefresh?.setOnRefreshListener(this)
             binding?.btnBack?.setOnClickListener(this)
@@ -71,92 +65,52 @@ class GuestFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRef
     }
 
     private fun initAdapter(){
-        guestAdapter = GuestAdapter()
-        gridLayoutManager = GridLayoutManager(context, 2)
-
         with(binding?.rvGuests){
             this?.layoutManager = gridLayoutManager
             this?.setHasFixedSize(true)
             this?.adapter = guestAdapter
+            this?.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    val visibleItemCount = gridLayoutManager.childCount
+                    val firstVisibleItem = gridLayoutManager.findFirstVisibleItemPosition()
+                    visibleItem = visibleItemCount + firstVisibleItem
+                    itemCount = guestAdapter.itemCount
 
-//            this?.addOnScrollListener(object : RecyclerView.OnScrollListener(){
-//                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                    val visibleItemCount = gridLayoutManager.childCount
-//                    val firstVisibleItem = gridLayoutManager.findFirstVisibleItemPosition()
-//                    val total = guestAdapter.itemCount
-//
-//                    if (!isLoading && page < totalPages){
-//                        if (visibleItemCount + firstVisibleItem >= total){
-//                            page++
-//                            getData(false)
-//                        }
-//                    }
-//
-//                    super.onScrolled(recyclerView, dx, dy)
-//                }
-//            })
+                    Log.e("CHECK3", visibleItem.toString())
+                    Log.e("CHECK4", itemCount.toString())
+
+                    super.onScrolled(recyclerView, dx, dy)
+                }
+            })
         }
     }
 
-    private fun getData(isRefresh: Boolean){
-//        isLoading = true
-
-//        if (!isRefresh){
-//            binding?.progressBar?.visibility = View.VISIBLE
-//        }
-
+    private fun getData(){
         val params = HashMap<String, String>()
         params["page"] = page.toString()
         params["per_page"] = perPage.toString()
 
-        viewModel.getAllUser(params).observe(viewLifecycleOwner){ data ->
-            runBlocking {
-                val value = async { data }
-                val result = value.await()
-                if (result != null){
+        lifecycleScope.launchWhenCreated {
+            viewModel.getAllUser(visibleItem, itemCount).observe(viewLifecycleOwner){ data ->
+                if (data != null){
                     when(data.status){
                         Status.LOADING -> {
                             binding?.progressBar?.visibility = View.VISIBLE
-                            Log.e("STATUS_LOADING", "STATUS_LOADING")
                         }
                         Status.SUCCESS -> {
                             binding?.progressBar?.visibility = View.GONE
-                            guestAdapter.submitList(result.data)
-                            guestAdapter.notifyDataSetChanged()
+
+                            initAdapter()
+                            guestAdapter.submitList(data.data)
+
                             binding?.swipeRefresh?.isRefreshing = false
-                            Log.e("STATUS_SUCCESS", "STATUS_SUCCESS")
                         }
                         Status.ERROR -> {
                             binding?.progressBar?.visibility = View.GONE
-                            Log.e("STATUS_ERROR", "STATUS_ERROR")
                         }
                     }
                 }
             }
-
-//            runBlocking {
-//                val value = async { data }
-//                val result = value.await()
-//
-//                if (data != null){
-//                    when(data.status){
-//                        Status.LOADING -> binding?.progressBar?.visibility = View.VISIBLE
-//                        Status.SUCCESS -> {
-//                            binding?.progressBar?.visibility = View.GONE
-//                            guestAdapter.submitList(data.data)
-//                        }
-//                        Status.ERROR -> {
-//                            binding?.progressBar?.visibility = View.GONE
-//                        }
-//                    }
-//                }
-//
-//                result.totalPages?.let { data -> totalPages = data }
-//                result.data?.let { data -> guestAdapter.set(data) }
-//                binding?.progressBar?.visibility = View.GONE
-//                isLoading = false
-//                binding?.swipeRefresh?.isRefreshing = false
-//            }
         }
     }
 
@@ -168,8 +122,7 @@ class GuestFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRef
 
     override fun onRefresh() {
         viewModel.clearData()
-        page = 1
-        getData(true)
+        getData()
     }
 
 }

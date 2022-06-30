@@ -3,7 +3,6 @@ package com.rezaharisz.competencytest.helper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import com.rezaharisz.competencytest.utils.ApiResponse
-import com.rezaharisz.competencytest.utils.AppExecutors
 import com.rezaharisz.competencytest.utils.Resource
 import com.rezaharisz.competencytest.utils.StatusResponse
 

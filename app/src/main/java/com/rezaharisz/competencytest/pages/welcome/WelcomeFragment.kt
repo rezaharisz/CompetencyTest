@@ -18,7 +18,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -79,10 +79,10 @@ class WelcomeFragment : Fragment(), View.OnClickListener {
         println(temp)
 
         return if (temp == value){
-            Toast.makeText(context, "isPalindrome", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "$value is Palindrome", Toast.LENGTH_SHORT).show()
             true
         } else {
-            Toast.makeText(context, "NotPalindrome", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "$value is Not Palindrome", Toast.LENGTH_SHORT).show()
             false
         }
     }
@@ -99,8 +99,8 @@ class WelcomeFragment : Fragment(), View.OnClickListener {
                 alert.setCancelable(true)
                 alert.show()
 
-                val btnCamera = dialogView.findViewById<LinearLayout>(R.id.btn_camera)
-                val btnGallery = dialogView.findViewById<LinearLayout>(R.id.btn_gallery)
+                val btnCamera = dialogView.findViewById<TextView>(R.id.btn_camera)
+                val btnGallery = dialogView.findViewById<TextView>(R.id.btn_gallery)
                 val btnCancel = dialogView.findViewById<Button>(R.id.btn_cancel)
 
                 btnCancel.setOnClickListener { alert.cancel() }
@@ -131,9 +131,6 @@ class WelcomeFragment : Fragment(), View.OnClickListener {
                         replace(R.id.frame_container, OnBoardFragment(), OnBoardFragment::class.java.canonicalName)
                         commit()
                     }
-
-                    binding?.edName?.text?.clear()
-                    binding?.edPalindrome?.text?.clear()
                 }
                 else if (name.isEmpty()){
                     binding?.edName?.error = StringBuilder("Field can not be blank")
